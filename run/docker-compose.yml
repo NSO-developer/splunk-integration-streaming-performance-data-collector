@@ -1,0 +1,26 @@
+version: "3"
+services:
+  otel-collector:
+    build:
+      context: ./opentelemetry-collector-contrib/
+      dockerfile: ../Dockerfile
+    container_name: otel
+    command: ["--config=/etc/otel-collector-config.yml"]
+    volumes:
+      - ./otel-collector-config.yml:/etc/otel-collector-config.yml
+    ports:
+      - 4318:4318
+      - 4317:4317
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.5
+
+
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1

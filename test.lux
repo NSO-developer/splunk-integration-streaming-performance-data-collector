@@ -1,0 +1,66 @@
+[doc]
+Test Case Heading
+
+Description of what is tested here.
+[enddoc]
+
+#timeout adjustment
+#[config risky_threshold=100]
+[config case_timeout=5000000]
+
+#j-cli
+#[global oper_prompt=(.*)@ncs>]
+#[global cfg_prompt=(.*)@ncs(.*)%]
+
+#c-cli
+[global oper_prompt=(.*)@ncs#]
+[global cfg_prompt=(.*)@ncs(.*)#]
+
+[shell nso]
+    [timeout infinity]
+    [progress "\nStarting up NSO. This will takes a while....\n"]
+    !make clean_cdb clean_logs start_nso && echo ==$$?==
+    ?==0==
+    [timeout 30]
+    [progress "\nPreparing....\n"]
+    !make cli-c
+    ?$oper_prompt
+    !config
+    ?$cfg_prompt
+
+[shell trigger]
+    [progress "\Prepare\n"]
+    #Preparations
+    !make cli-c
+    ?$oper_prompt
+    !config
+    ?$cfg_prompt
+    #Create Service
+    !template-service test max-length $X
+    ?$cfg_prompt
+
+
+[shell collect]
+    [progress "\nStart Collecting Data for X=$X....\n"]
+    !make collect && echo ==$$?==
+    ?==0==
+
+[shell trigger]
+    [timeout infinity]
+    [progress "\Triggering....\n"]
+    #The operation you want to collect data on
+    !commit
+    ???Commit complete.
+
+[shell collect]
+    [progress "\nStop Collecting and Start Processing Data....\n"]
+    !make X=$X stop_collect && echo ==$$?==
+    ?==0==
+
+
+
+[cleanup]
+    [progress "\nTest End.Cleaning....\n"]
+    #Clean up
+    !make stop_nso && echo ==$$?==
+    ?==0==

@@ -1,0 +1,13 @@
+logs/*.logs
+!logs/.gitkeep
+nso/lux_logs/*
+nohup.out
+data/*
+!data/.gitkeep
+packages/*
+!packages/.gitkeep
+!packages/template-service
+ncs-cdb/*
+!ncs-cdb/.gitkeep
+.DS_Store
+lib/*.py3
