@@ -1,4 +1,4 @@
-logs/*.logs
+logs/*.log
 !logs/.gitkeep
 nso/lux_logs/*
 nohup.out
