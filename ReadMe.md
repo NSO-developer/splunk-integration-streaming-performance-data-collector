@@ -91,7 +91,7 @@ This example is based on the Reproduction Framwork v3.0
             current_span.set_attribute("x", msg)
             current_span.set_attribute("mem", mem)
             current_span.set_attribute("time", time)
-        ```
+    ```
 * Startup entire pipeline with 
         ```
         make clean build test
