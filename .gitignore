@@ -12,3 +12,4 @@ ncs-cdb/*
 .DS_Store
 lib/*.py3
 *.fxs
+*.swp
