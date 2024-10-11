@@ -11,5 +11,8 @@ while true; do
 RawData=$(ps -p $PID -o rss=)
 echo -n $RawData" " >> data/mem.dat
 
+As=$(cat /proc/meminfo | grep Committed_AS | egrep -o '[0-9.]+')
+echo -n $As" " >> data/as.dat
+
 sleep $2
 done 

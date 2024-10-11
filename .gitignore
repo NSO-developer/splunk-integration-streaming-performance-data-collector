@@ -11,3 +11,4 @@ ncs-cdb/*
 !ncs-cdb/.gitkeep
 .DS_Store
 lib/*.py3
+*.fxs

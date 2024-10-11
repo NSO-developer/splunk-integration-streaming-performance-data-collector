@@ -27,6 +27,11 @@ Description of what is tested here.
     ?$oper_prompt
     !config
     ?$cfg_prompt
+    !services global-settings service-callback-timeout 6000
+    ?$cfg_prompt
+    !commit
+    ???Commit complete.
+
 
 [shell trigger]
     [progress "\Prepare\n"]
@@ -36,7 +41,7 @@ Description of what is tested here.
     !config
     ?$cfg_prompt
     #Create Service
-    !template-service test max-length $X
+    !predictive_service test max-length $X
     ?$cfg_prompt
 
 

@@ -38,7 +38,7 @@ This example is based on the Reproduction Framwork v3.0
 ├── logs -> log of the process(not in use)
 ├── ncs-cdb -> CDB that used for testing
 ├── packages -> packages that used for testing
-│   └── template-service -> Sample Service that incrase order by user list length
+│   └── predictive_service -> Sample Service that incrase order by user list length
 ├── requirments.txt -> python dependency
 ├── run -> OTEL Collector
 │   ├── Dockerfile

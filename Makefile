@@ -56,10 +56,10 @@ stop: stop_nso stop_collector
 
 
 clean_logs:
-	rm -rf ncs_run/logs/*
+	rm -rf ncs-run/logs/*
 
 clean_cdb:
-	rm -rf ncs_run/ncs-cdb/*
+	rm -rf ncs-run/ncs-cdb/*
 
 clean_data:
 	-rm -f data.dat

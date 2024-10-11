@@ -1,9 +1,0 @@
-<config-template xmlns="http://tail-f.com/ns/config/1.0" servicepoint="template-service-servicepoint">
-  <test-container xmlns="http://com/example/templateservice">
-    <?for i=0; {$i < /max-length}; i={$i + 1}?>
-    <test-list>
-        <test-key>{$i}</test-key>
-    </test-list>
-    <?end?>
-  </test-container>
-</config-template>
