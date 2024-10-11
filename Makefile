@@ -1,4 +1,4 @@
-.SUBDIRS := $(wildcard ncs-run/packages/*/src/.)
+.SUBDIRS := $(wildcard packages/*/src/.)
 SHELL := /bin/bash
 FILENAME := $(shell sh curr.sh)
 X = 0
@@ -65,7 +65,7 @@ clean_data:
 	-rm -f data.dat
 	-rm -f data/*.dat
 
-clean: stop clean_data
+clean: stop clean_data clean_cdb clean_logs
 	-rm -rf lux_logs
 	-rm -rf ncs-run
 	-rm -rf cd run/opentelemetry-collector-contrib
@@ -97,8 +97,7 @@ tar: reset
 
 make_packages: $(SUBDIRS)
 $(SUBDIRS):
-	export NCS_CONFIG_DIR=$(PWD)/ncs-dir;export NCS_RUN_DIR=$(PWD)/ncs-dir;export NCS_LOG_DIR=$(PWD)/ncs-dir/logs;$(MAKE) clean all -C $@ 
-
+	$(MAKE) clean all -C $@
 
 .PHONY: make_packages $(SUBDIRS)
 

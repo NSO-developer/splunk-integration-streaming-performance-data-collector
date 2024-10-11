@@ -34,7 +34,7 @@ def send_trace(tracer,msg,mem,time,commited_as,kvs=""):
 		current_span.set_attribute("x", msg)
 		current_span.set_attribute("mem", mem)
 		current_span.set_attribute("time", time)
-        current_span.set_attribute("commited_as", commited_as)
+		current_span.set_attribute("commited_as", commited_as)
 
 
 
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 	msg=sys.argv[2]
 	mem=sys.argv[3]
 	time=sys.argv[4]
-    commited_as=sys.argv[5]
+	commited_as=sys.argv[5]
 
 	init(otel_collector_ip)
 	send_trace(tracer,msg,mem,time,commited_as)
