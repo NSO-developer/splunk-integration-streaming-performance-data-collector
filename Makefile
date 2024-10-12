@@ -1,4 +1,4 @@
-.SUBDIRS := $(wildcard packages/*/src/.)
+SUBDIRS := $(wildcard packages/*/src/.)
 SHELL := /bin/bash
 FILENAME := $(shell sh curr.sh)
 X = 0
