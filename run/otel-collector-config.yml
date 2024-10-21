@@ -11,7 +11,7 @@ receivers:
 exporters:
   splunk_hec/events:
     # Splunk HTTP Event Collector token.
-    token: "b691c769-ebb8-4b36-a743-f6241b594ded"
+    token: "<HEC Token>"
     # URL to a Splunk instance to send data to.
     endpoint: "http://<Splunk IP>:8088/services/collector"
     # Optional Splunk source: https://docs.splunk.com/Splexicon:Source
