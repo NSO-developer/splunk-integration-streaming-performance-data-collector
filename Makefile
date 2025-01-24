@@ -11,14 +11,15 @@ deps:
 
 all: build test
 
-build: deps
-	ncs-setup --dest ncs-run --generate-ssh-keys
-	rm -rf ncs-run/packages
-	cd ncs-run; ln -s ../packages
-	cp -R ncs-cdb ncs-run/
-	make make_packages
-	make start_collector
+build: deps build_nso start_collector
 
+build_nso:
+        ncs-setup --dest ncs-run --generate-ssh-keys
+        rm -rf ncs-run/packages
+        cd ncs-run; ln -s ../packages
+        cp -R ncs-cdb ncs-run/
+        #cp ncs.conf ncs-run/
+        make make_packages
 
 build_nocompile: 
 	ncs-setup --dest ncs-run --package packages/* --generate-ssh-keys
@@ -38,13 +39,13 @@ start_frontend:
 
 
 collect:
-	nohup sh data_collect.sh ncs.smp 1 &> logs/collect.log &
+	nohup bash data_collect.sh ncs.smp 1 &> logs/collect.log &
 
 test:
 	sh trigger.sh $(MaxX) $(INTERVAL)
 
 stop_collect:
-	sh data_processing.sh $(X)
+	bash data_processing.sh $(X)
 	
 stop_collector:
 	 cd run; docker compose down
