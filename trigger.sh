@@ -1,5 +1,5 @@
 
-x=0
+x=$3
 while [ $x -le $1 ]
 do
   lux --var=X=$x test.lux
