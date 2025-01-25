@@ -47,7 +47,7 @@ Description of what is tested here.
 
 [shell collect]
     [progress "\nStart Collecting Data for X=$X....\n"]
-    !make collect && echo ==$$?==
+    !make collect ; echo ==$$?==
     ?==0==
 
 [shell trigger]
@@ -58,8 +58,9 @@ Description of what is tested here.
     ???Commit complete.
 
 [shell collect]
+    [timeout 60]
     [progress "\nStop Collecting and Start Processing Data....\n"]
-    !make X=$X stop_collect && echo ==$$?==
+    !make X=$X stop_collect ; echo ==$$?==
     ?==0==
 
 
@@ -67,5 +68,5 @@ Description of what is tested here.
 [cleanup]
     [progress "\nTest End.Cleaning....\n"]
     #Clean up
-    !make stop_nso && echo ==$$?==
+    !make stop_nso ; echo ==$$?==
     ?==0==
