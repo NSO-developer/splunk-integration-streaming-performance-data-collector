@@ -63,10 +63,11 @@ This example is based on the Reproduction Framwork v3.0
 3. If you have any other package that want to run together with the example, please also copy to the same folder nso/packages. 
 
 # Usage
-* Setup the Interation of Independent Variable at MaxX and the interval between each Independent Variable at INTERVAL in the Makefile. For example, the one below will run thes test from 0 to 450000 with 50000 apart.
+* Setup the Interation of Independent Variable at MaxX and the interval between each Independent Variable at INTERVAL in the Makefile. At the same time, iteration starting point at MinX.  For example, the one below will run thes test from 0(MinX) to 450000(MaxX) with 50000(INTERVAL) apart.
     ```
     MaxX = 450000
     INTERVAL = 50000
+    MinX = 0
     ```
 
 * test.lux defined the command sequence that will trigger per data collection round. This is based on the Lux Test Framwork. Lux act as interactive test framwork by specify a input command (!) and see if the expected output came back(? or ???). A sample test.lux is provided and user need to modify the test.lux by adding NSO Startup Command in "nso", Preparation before data collection in the first "trigger" shell, trigger the activity that want to collect under the second "trigger" shell and eventually the clean up before end of the collection in "cleanup". The "collect" shell before the second "trigger" shell calls
