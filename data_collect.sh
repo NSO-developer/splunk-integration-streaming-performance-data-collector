@@ -1,3 +1,10 @@
+#incase previous round have left over data
+rm -f data/start_time.dat
+rm -f data/end_time.dat
+rm -f data/mem.dat
+rm -f data/as.dat
+rm -f data/time_elapse.dat
+
 #$1 can be java, python or ncs.smp
 PID=$(pgrep $1)
 #echo "Monitoring PID: "$PID
