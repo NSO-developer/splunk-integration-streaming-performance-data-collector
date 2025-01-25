@@ -4,7 +4,7 @@ FILENAME := $(shell sh curr.sh)
 X = 0
 MaxX = 450000
 INTERVAL = 50000
-
+MinX = 0
 
 deps:
 	-cd run; git clone git@github.com:open-telemetry/opentelemetry-collector-contrib.git
@@ -42,7 +42,7 @@ collect:
 	nohup bash data_collect.sh ncs.smp 1 &> logs/collect.log &
 
 test:
-	sh trigger.sh $(MaxX) $(INTERVAL)
+        sh trigger.sh $(MaxX) $(INTERVAL) $(MinX)
 
 stop_collect:
 	bash data_processing.sh $(X)
