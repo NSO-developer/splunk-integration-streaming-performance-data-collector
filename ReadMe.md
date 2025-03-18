@@ -55,12 +55,12 @@ This example is based on the Reproduction Framwork v3.0
 1. Modify the "token" and "endpoint" address in "run/otel-collector-config.yml" under various "exporters". At moment, it use example entry to show how things suppose to looks like. 
     * endpoint address - Splunk address
     * token - HEC token
-
-2. Install dependency
+    * If collector is designed in a remote server, also modify the IP address towards the collector in the following line at "data_processing.sh" (Optional)
     ```
-    pip install -r requirments.txt
+	#Stream to Splunk
+	sh send_splunk.sh "http://10.5.0.5:4318" $1 $Mem $Time $As
     ```
-3. If you have any other package that want to run together with the example, please also copy to the same folder nso/packages. 
+2. If you have any other package that want to run together with the example, please also copy to the same folder nso/packages. 
 
 # Usage
 * Setup the Interation of Independent Variable at MaxX and the interval between each Independent Variable at INTERVAL in the Makefile. At the same time, iteration starting point at MinX.  For example, the one below will run thes test from 0(MinX) to 450000(MaxX) with 50000(INTERVAL) apart.
