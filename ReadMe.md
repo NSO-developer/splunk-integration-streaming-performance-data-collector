@@ -94,13 +94,21 @@ This example is based on the Reproduction Framwork v3.0
             current_span.set_attribute("time", time)
     ```
 * Startup entire pipeline with 
-        ```
-        make clean build test
-        ```
-    or if the pipeline will consume a lot of time, run the test in the background. 
-        ```
-        nohup make clean build test &
-        ```
+```
+make clean build test
+```
+or
+```
+make clean all
+```
+or if the pipeline will consume a lot of time, run the test in the background. 
+```
+nohup make clean build test &
+```
+or
+```
+nohup make clean all &
+```
 
 
 
