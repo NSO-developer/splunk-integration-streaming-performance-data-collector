@@ -101,7 +101,7 @@ or
 ```
 make clean all
 ```
-or if the pipeline will consume a lot of time, run the test in the background. 
+* If the pipeline will consume a lot of time, run the test in the background. 
 ```
 nohup make clean build test &
 ```
