@@ -3,7 +3,9 @@ FROM golang:1.22 AS build
 WORKDIR /src
 ADD . /src
 
-RUN make otelcontribcol
+RUN rm -rf /usr/local/go;wget https://go.dev/dl/go1.24.1.linux-amd64.tar.gz &&  tar -C /usr/local -xzf go1.24.1.linux-amd64.tar.gz && export PATH=$PATH:/usr/local/go/bin
+RUN echo "export PATH=$PATH:/usr/local/go/bin" > ~/.bashrc
+RUN  export PATH=$PATH:/usr/local/go/bin; make otelcontribcol
 
 FROM alpine:latest as certs
 RUN apk --update add ca-certificates
