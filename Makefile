@@ -7,6 +7,7 @@ INTERVAL = 50000
 MinX = 0
 
 deps:
+	pip install -r requirments.txt
 	-cd run; git clone git@github.com:open-telemetry/opentelemetry-collector-contrib.git
 
 all: build test
