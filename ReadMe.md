@@ -1,4 +1,5 @@
 # Splunk NSO Integration Example - Streaming Performance Data Collector (Lux Edition)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/NSO-developer/splunk-integration-streaming-performance-data-collector)  
 This repository provide a Data Collection and Processing Pipeline for Cisco NSO that collect performance related data(for example memory and time consumtpion), Process the collected data and stream to Splunk for further processing. This testbed is based on Erlang Lux test framwork. Lux is one of the test framwork that is closest to the network engineer mindset by asking for a input command and see if the output is expected. By benifit from the design of Lux, we create this Data Collection and Processing Pipeline that can easily adapt any NSO use case scenrio. 
 
 # Dependency
